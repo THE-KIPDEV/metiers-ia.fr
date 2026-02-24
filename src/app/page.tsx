@@ -8,29 +8,29 @@ import InternalLinkCard from "@/components/InternalLinkCard";
 
 const HOMEPAGE_FAQ = [
   {
-    question: "Quels sont les métiers les plus demandés dans l'IA en 2025 ?",
+    question: "Quels métiers de l'IA recrutent le plus en 2025 ?",
     answer:
-      "Les métiers les plus recherchés sont le Data Scientist, le Machine Learning Engineer, l'Ingénieur IA et le Prompt Engineer. La demande pour les profils MLOps et Architecte Cloud IA est également en forte croissance.",
+      "Data Scientist, ML Engineer et Ingénieur IA restent les plus recherchés. Le Prompt Engineer est un profil qui monte vite, et les entreprises s'arrachent aussi les profils MLOps et Architecte Cloud IA pour industrialiser leurs modèles.",
   },
   {
-    question: "Quel salaire peut-on espérer dans l'intelligence artificielle ?",
+    question: "Combien gagne-t-on dans l'IA en France ?",
     answer:
-      "Les salaires dans l'IA varient de 32 000 € pour un Data Analyst junior à plus de 135 000 € pour un Architecte Cloud IA senior. Le salaire médian se situe autour de 55 000 à 65 000 € par an en France.",
+      "Ça va de 32 000 € pour un Data Analyst junior à plus de 135 000 € pour un Architecte Cloud IA senior à Paris. En médian, on tourne autour de 55 000-65 000 € brut annuel. Les salaires montent vite avec l'expérience.",
   },
   {
-    question: "Faut-il un Bac+5 pour travailler dans l'IA ?",
+    question: "Un Bac+5 est-il obligatoire ?",
     answer:
-      "La plupart des postes techniques requièrent un Bac+5 (école d'ingénieur ou master). Cependant, certains métiers comme Data Analyst IA ou Formateur IA sont accessibles dès Bac+3. Les bootcamps intensifs permettent aussi des reconversions sans diplôme traditionnel.",
+      "Pour les postes techniques (ML Engineer, Data Scientist), oui en général. Mais Data Analyst ou Formateur IA sont accessibles dès Bac+3, et les bootcamps comme Le Wagon ou DataScientest permettent de se reconvertir sans cursus classique.",
   },
   {
-    question: "Comment se reconvertir dans l'intelligence artificielle ?",
+    question: "Comment se reconvertir dans l'IA ?",
     answer:
-      "La reconversion dans l'IA est possible via des bootcamps intensifs (Le Wagon, DataScientest), des certifications en ligne (Google, AWS) ou des masters spécialisés. Les profils mathématiques, statistiques ou développeurs ont un avantage certain.",
+      "Bootcamps intensifs (Le Wagon, DataScientest, Jedha), certifications en ligne (Google, AWS) ou masters spécialisés. Si vous venez des maths, des stats ou du dev, vous avez déjà une bonne base. Sinon, comptez 6 à 12 mois de formation sérieuse.",
   },
   {
-    question: "Quelles compétences sont essentielles pour les métiers de l'IA ?",
+    question: "Quelles compétences pour bosser dans l'IA ?",
     answer:
-      "Les compétences clés incluent Python, les statistiques, le machine learning, SQL et la connaissance des frameworks comme TensorFlow ou PyTorch. Les soft skills comme la communication et l'esprit analytique sont tout aussi importants.",
+      "Côté technique : Python, stats, machine learning, SQL, et au moins un framework type TensorFlow ou PyTorch. Mais les soft skills comptent aussi : savoir vulgariser, travailler en équipe, et comprendre les enjeux métier de l'entreprise.",
   },
 ];
 
@@ -68,8 +68,8 @@ export default function HomePage() {
             {" "}en France
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Découvrez {JOBS.length} fiches métiers détaillées, les salaires, les formations
-            et les parcours pour construire votre carrière dans l&apos;IA.
+            {JOBS.length} fiches m&eacute;tiers avec salaires, formations et parcours concrets
+            pour travailler dans l&apos;IA en France.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -119,7 +119,7 @@ export default function HomePage() {
             Métiers phares de l&apos;IA
           </h2>
           <p className="text-gray-600 mb-8">
-            Les professions les plus recherchées dans le secteur de l&apos;intelligence artificielle.
+            Les postes qui recrutent le plus en ce moment dans l&apos;IA.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {featuredJobs.map((job) => (

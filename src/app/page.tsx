@@ -15,7 +15,7 @@ const HOMEPAGE_FAQ = [
   {
     question: "Combien gagne-t-on dans l'IA en France ?",
     answer:
-      "Ça va de 32 000 € pour un Data Analyst junior à plus de 135 000 € pour un Architecte Cloud IA senior à Paris. En médian, on tourne autour de 55 000-65 000 € brut annuel. Les salaires montent vite avec l'expérience.",
+      "De 32 000 € pour un Data Analyst junior à plus de 135 000 € pour un Architecte Cloud IA senior à Paris. En médian, on tourne autour de 55 000-65 000 € brut annuel. Les salaires montent vite avec l'expérience.",
   },
   {
     question: "Un Bac+5 est-il obligatoire ?",
@@ -28,7 +28,7 @@ const HOMEPAGE_FAQ = [
       "Bootcamps intensifs (Le Wagon, DataScientest, Jedha), certifications en ligne (Google, AWS) ou masters spécialisés. Si vous venez des maths, des stats ou du dev, vous avez déjà une bonne base. Sinon, comptez 6 à 12 mois de formation sérieuse.",
   },
   {
-    question: "Quelles compétences pour bosser dans l'IA ?",
+    question: "Quelles compétences pour travailler dans l'IA ?",
     answer:
       "Côté technique : Python, stats, machine learning, SQL, et au moins un framework type TensorFlow ou PyTorch. Mais les soft skills comptent aussi : savoir vulgariser, travailler en équipe, et comprendre les enjeux métier de l'entreprise.",
   },
@@ -36,15 +36,14 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   const featuredJobs = JOBS.slice(0, 6);
-  const categories = [...new Set(JOBS.map((j) => j.category))];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Métiers IA",
+    name: "metiers-ia.fr",
     url: "https://metiers-ia.fr",
     description:
-      "Le guide de référence des métiers de l'intelligence artificielle en France.",
+      "Guide des métiers de l'intelligence artificielle en France.",
     potentialAction: {
       "@type": "SearchAction",
       target: "https://metiers-ia.fr/metiers?q={search_term_string}",
@@ -60,145 +59,104 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary via-primary-light to-primary text-white py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            Les métiers de l&apos;
-            <span className="text-accent-light">Intelligence Artificielle</span>
-            {" "}en France
+      <section className="bg-primary text-white py-14 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl font-bold leading-tight max-w-2xl">
+            Les métiers de l&apos;intelligence artificielle en France
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            {JOBS.length} fiches m&eacute;tiers avec salaires, formations et parcours concrets
-            pour travailler dans l&apos;IA en France.
+          <p className="mt-4 text-gray-300 max-w-2xl">
+            {JOBS.length} fiches métiers avec salaires, formations et parcours
+            concrets pour travailler dans l&apos;IA.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/metiers"
-              className="bg-accent hover:bg-accent-dark text-white px-8 py-3 rounded-lg font-medium transition-colors"
+              className="bg-white text-primary px-5 py-2.5 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
             >
-              Explorer les métiers
+              Voir les métiers
             </Link>
             <Link
               href="/guide"
-              className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-medium transition-colors border border-white/20"
+              className="text-gray-300 border border-white/20 px-5 py-2.5 rounded text-sm font-medium hover:bg-white/10 transition-colors"
             >
-              Lire le guide complet
+              Lire le guide
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div>
-              <p className="text-3xl font-bold text-accent">{JOBS.length}</p>
-              <p className="mt-1 text-sm text-gray-600">Fiches métiers</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-accent">32k - 135k €</p>
-              <p className="mt-1 text-sm text-gray-600">Fourchette salariale</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-accent">{categories.length}</p>
-              <p className="mt-1 text-sm text-gray-600">Catégories</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-accent">+35%</p>
-              <p className="mt-1 text-sm text-gray-600">Croissance emploi IA</p>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Featured jobs */}
-      <section className="py-16" aria-labelledby="featured-jobs">
+      <section className="py-12" aria-labelledby="featured-jobs">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 id="featured-jobs" className="text-2xl sm:text-3xl font-bold text-primary mb-2">
-            Métiers phares de l&apos;IA
+          <h2 id="featured-jobs" className="text-2xl font-bold text-primary mb-6">
+            Métiers les plus recherchés
           </h2>
-          <p className="text-gray-600 mb-8">
-            Les postes qui recrutent le plus en ce moment dans l&apos;IA.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {featuredJobs.map((job) => (
               <JobCard key={job.slug} job={job} />
             ))}
           </div>
-          <div className="mt-8 text-center">
-            <Link
-              href="/metiers"
-              className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-dark transition-colors"
-            >
-              Voir les {JOBS.length} métiers
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
+          <p className="mt-6 text-sm">
+            <Link href="/metiers" className="text-accent hover:underline">
+              Voir les {JOBS.length} fiches métiers
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 
       {/* Ad */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-12">
         <AdBanner ad={ADS[1]} />
       </div>
 
-      {/* Quick navigation */}
-      <section className="py-16 bg-gray-50" aria-labelledby="resources">
+      {/* Resources */}
+      <section className="py-12 bg-gray-50" aria-labelledby="resources">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 id="resources" className="text-2xl sm:text-3xl font-bold text-primary mb-8">
-            Ressources pour votre carrière IA
+          <h2 id="resources" className="text-2xl font-bold text-primary mb-6">
+            Ressources
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <InternalLinkCard
               href="/salaires"
-              icon="💰"
-              title="Grille des salaires IA"
-              description="Comparez les salaires des 18 métiers de l'IA en France, du junior au senior."
+              title="Grille des salaires"
+              description="Comparatif des salaires des 18 métiers de l'IA, du junior au senior."
             />
             <InternalLinkCard
               href="/formations"
-              icon="🎓"
-              title="Formations et certifications"
-              description="Les meilleures formations pour se lancer dans l'IA : universités, bootcamps, certifications."
+              title="Formations"
+              description="Masters, écoles d'ingénieurs, bootcamps et certifications IA."
             />
             <InternalLinkCard
               href="/guide"
-              icon="📖"
-              title="Guide complet des métiers IA"
-              description="Tout ce qu'il faut savoir pour construire sa carrière dans l'intelligence artificielle."
+              title="Guide complet"
+              description="Marché de l'emploi, compétences, reconversion et perspectives."
             />
             <InternalLinkCard
               href="/devenir/data-scientist"
-              icon="📊"
               title="Devenir Data Scientist"
-              description="Le parcours étape par étape pour devenir Data Scientist en France."
+              description="Parcours, formations et compétences pour ce métier."
             />
             <InternalLinkCard
               href="/devenir/prompt-engineer"
-              icon="✍️"
               title="Devenir Prompt Engineer"
-              description="Nouveau métier en plein essor : comment devenir Prompt Engineer."
+              description="Comment accéder à ce nouveau métier en plein essor."
             />
             <InternalLinkCard
               href="/devenir/machine-learning-engineer"
-              icon="🤖"
               title="Devenir ML Engineer"
-              description="Guide pour devenir Machine Learning Engineer : compétences, formations, salaires."
+              description="Parcours et formations pour devenir Machine Learning Engineer."
             />
           </div>
         </div>
       </section>
 
       {/* Ad */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         <AdBanner ad={ADS[2]} />
       </div>
 
       {/* FAQ */}
-      <section className="pb-16">
+      <section className="pb-12">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <FAQ items={HOMEPAGE_FAQ} />
         </div>

@@ -17,37 +17,35 @@ const RESOURCES = [
 ];
 
 const PARTNERS = [
-  { href: "https://smart-bot.io", label: "Smart-Bot.io", description: "Chatbot IA" },
-  { href: "https://studio-cortex.com", label: "Studio Cortex", description: "Formation IA" },
-  { href: "https://kipagent.com", label: "KipAgent", description: "Agents IA" },
+  { href: "https://smart-bot.io", label: "Smart-Bot.io" },
+  { href: "https://studio-cortex.com", label: "Studio Cortex" },
+  { href: "https://kipagent.com", label: "KipAgent" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-gray-300" role="contentinfo">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-primary text-gray-400" role="contentinfo">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <Link href="/" className="text-lg font-bold text-white flex items-center gap-2">
-              <span aria-hidden="true">🧠</span>
-              Métiers<span className="text-accent-light">IA</span>
+            <Link href="/" className="text-sm font-semibold text-white">
+              metiers-ia.fr
             </Link>
-            <p className="mt-3 text-sm text-gray-400">
-              Le guide de référence des métiers de l&apos;intelligence artificielle en France.
-              Fiches métiers, salaires, formations et conseils pour votre carrière dans l&apos;IA.
+            <p className="mt-3 text-sm">
+              Guide des métiers de l&apos;intelligence artificielle en France.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-              Métiers populaires
+            <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              Métiers
             </h3>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 space-y-1.5">
               {POPULAR_JOBS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-400 hover:text-accent-light transition-colors"
+                    className="text-sm hover:text-gray-200 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -57,15 +55,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+            <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wider">
               Ressources
             </h3>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 space-y-1.5">
               {RESOURCES.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-400 hover:text-accent-light transition-colors"
+                    className="text-sm hover:text-gray-200 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -75,20 +73,19 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-              Outils recommandés
+            <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              Voir aussi
             </h3>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-3 space-y-1.5">
               {PARTNERS.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-400 hover:text-accent-light transition-colors"
+                    className="text-sm hover:text-gray-200 transition-colors"
                   >
                     {item.label}
-                    <span className="text-gray-500"> — {item.description}</span>
                   </a>
                 </li>
               ))}
@@ -96,24 +93,24 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} Métiers IA — Un site{" "}
+            &copy; {new Date().getFullYear()} metiers-ia.fr &mdash;{" "}
             <a
               href="https://kipdev.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-accent-light"
+              className="hover:text-gray-300"
             >
               KipDev
             </a>
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-5">
             <Link href="/mentions-legales" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">
               Mentions légales
             </Link>
             <Link href="/politique-confidentialite" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-              Politique de confidentialité
+              Confidentialité
             </Link>
           </div>
         </div>

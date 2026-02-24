@@ -33,26 +33,12 @@ export default function FAQ({ items, includeSchema = true }: FAQProps) {
       <h2 id="faq-heading" className="text-2xl font-bold text-primary mb-6">
         Questions fréquentes
       </h2>
-      <div className="space-y-3">
+      <div className="space-y-6">
         {items.map((item, index) => (
-          <details
-            key={index}
-            className="group border border-gray-200 rounded-lg overflow-hidden"
-          >
-            <summary className="flex items-center justify-between px-5 py-4 bg-gray-50 hover:bg-gray-100 transition-colors">
-              <span className="font-medium text-gray-800 pr-4">
-                {item.question}
-              </span>
-              <span className="faq-chevron text-gray-400 shrink-0" aria-hidden="true">
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-              </span>
-            </summary>
-            <div className="px-5 py-4 text-gray-600 leading-relaxed">
-              {item.answer}
-            </div>
-          </details>
+          <div key={index}>
+            <h3 className="font-medium text-gray-900">{item.question}</h3>
+            <p className="mt-1 text-gray-600 leading-relaxed">{item.answer}</p>
+          </div>
         ))}
       </div>
     </section>

@@ -145,32 +145,30 @@ const FORMATION_FAQ = [
 function FormationSection({
   title,
   id,
-  icon,
   formations,
 }: {
   title: string;
   id: string;
-  icon: string;
   formations: { name: string; duration: string; description: string }[];
 }) {
   return (
     <section aria-labelledby={id} className="mb-12">
-      <h2 id={id} className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-        <span aria-hidden="true">{icon}</span> {title}
+      <h2 id={id} className="text-2xl font-bold text-primary mb-6">
+        {title}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {formations.map((f) => (
           <article
             key={f.name}
-            className="border border-gray-200 rounded-xl p-5 hover:border-accent/30 transition-colors"
+            className="border border-gray-200 rounded-lg p-4"
           >
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-semibold text-gray-900">{f.name}</h3>
-              <span className="shrink-0 text-xs font-medium bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+              <h3 className="font-medium text-gray-900">{f.name}</h3>
+              <span className="shrink-0 text-xs text-gray-500">
                 {f.duration}
               </span>
             </div>
-            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+            <p className="mt-1 text-sm text-gray-600 leading-relaxed">
               {f.description}
             </p>
           </article>
@@ -187,8 +185,8 @@ export default function FormationsPage() {
     headline: "Formations Intelligence Artificielle en France 2025",
     description:
       "Guide des meilleures formations pour travailler dans l'IA en France.",
-    author: { "@type": "Organization", name: "Métiers IA" },
-    publisher: { "@type": "Organization", name: "Métiers IA" },
+    author: { "@type": "Organization", name: "metiers-ia.fr" },
+    publisher: { "@type": "Organization", name: "metiers-ia.fr" },
   };
 
   return (
@@ -208,25 +206,23 @@ export default function FormationsPage() {
 
         <header className="mb-10">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary">
-            Formations Intelligence Artificielle en France
+            Formations IA en France
           </h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl">
-            Les meilleures formations pour se lancer ou évoluer dans les métiers de l&apos;IA :
-            universités, écoles d&apos;ingénieurs, bootcamps et certifications.
+            Masters, écoles d&apos;ingénieurs, bootcamps et certifications
+            pour se lancer ou évoluer dans les métiers de l&apos;IA.
           </p>
         </header>
 
         <FormationSection
           title="Masters universitaires"
           id="universites"
-          icon="🏛️"
           formations={FORMATIONS.universites}
         />
 
         <FormationSection
           title="Écoles d'ingénieurs"
           id="ecoles"
-          icon="🎓"
           formations={FORMATIONS.ecoles}
         />
 
@@ -236,7 +232,6 @@ export default function FormationsPage() {
           <FormationSection
             title="Bootcamps intensifs"
             id="bootcamps"
-            icon="🚀"
             formations={FORMATIONS.bootcamps}
           />
         </div>
@@ -244,18 +239,16 @@ export default function FormationsPage() {
         <FormationSection
           title="Certifications professionnelles"
           id="certifications"
-          icon="📜"
           formations={FORMATIONS.certifications}
         />
 
         {/* Links to devenir pages */}
-        <section className="mb-12 bg-gray-50 rounded-xl p-6 border border-gray-200" aria-labelledby="parcours">
+        <section className="mb-12" aria-labelledby="parcours">
           <h2 id="parcours" className="text-xl font-bold text-primary mb-4">
             Parcours par métier
           </h2>
           <p className="text-gray-600 mb-4">
-            Consultez nos guides détaillés pour connaître le parcours de formation
-            spécifique à chaque métier :
+            Guides détaillés par métier :
           </p>
           <div className="flex flex-wrap gap-2">
             {[
@@ -269,7 +262,7 @@ export default function FormationsPage() {
               <Link
                 key={job.slug}
                 href={`/devenir/${job.slug}`}
-                className="inline-flex items-center gap-1 text-sm bg-white border border-gray-200 px-3 py-1.5 rounded-full hover:border-accent/30 hover:text-accent transition-colors"
+                className="text-sm border border-gray-200 px-3 py-1.5 rounded hover:border-gray-300 hover:text-accent transition-colors"
               >
                 Devenir {job.label}
               </Link>

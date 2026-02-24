@@ -51,8 +51,8 @@ export default function SalairesPage() {
     headline: "Salaires des métiers de l'IA en France 2025",
     description:
       "Grille complète des salaires dans l'intelligence artificielle en France.",
-    author: { "@type": "Organization", name: "Métiers IA" },
-    publisher: { "@type": "Organization", name: "Métiers IA" },
+    author: { "@type": "Organization", name: "metiers-ia.fr" },
+    publisher: { "@type": "Organization", name: "metiers-ia.fr" },
   };
 
   return (
@@ -75,44 +75,44 @@ export default function SalairesPage() {
             Salaires des métiers de l&apos;IA en France
           </h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl">
-            Tableau comparatif complet des rémunérations dans l&apos;intelligence
-            artificielle, du profil junior au senior.
+            Tableau comparatif des rémunérations dans l&apos;intelligence
+            artificielle, du junior au senior.
           </p>
         </header>
 
         {/* Key stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-          <div className="bg-accent/5 border border-accent/20 rounded-xl p-5 text-center">
-            <p className="text-2xl font-bold text-accent">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+            <p className="text-xl font-bold text-gray-900">
               {avgMedian.toLocaleString("fr-FR")} €
             </p>
-            <p className="text-sm text-gray-600 mt-1">Salaire médian moyen</p>
+            <p className="text-sm text-gray-500 mt-1">Médian moyen</p>
           </div>
-          <div className="bg-success/5 border border-success/20 rounded-xl p-5 text-center">
-            <p className="text-2xl font-bold text-success">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+            <p className="text-xl font-bold text-gray-900">
               {highestPaid.salary.median.toLocaleString("fr-FR")} €
             </p>
-            <p className="text-sm text-gray-600 mt-1">
-              Plus haut médian ({highestPaid.shortTitle})
+            <p className="text-sm text-gray-500 mt-1">
+              Plus haut ({highestPaid.shortTitle})
             </p>
           </div>
-          <div className="bg-accent-blue/5 border border-accent-blue/20 rounded-xl p-5 text-center">
-            <p className="text-2xl font-bold text-accent-blue">+12%</p>
-            <p className="text-sm text-gray-600 mt-1">Hausse moyenne annuelle</p>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+            <p className="text-xl font-bold text-gray-900">+12 %</p>
+            <p className="text-sm text-gray-500 mt-1">Hausse annuelle moyenne</p>
           </div>
         </div>
 
         {/* Table */}
         <section className="mb-12" aria-labelledby="salary-table">
           <h2 id="salary-table" className="text-2xl font-bold text-primary mb-6">
-            Grille des salaires par métier (brut annuel)
+            Grille des salaires par métier
           </h2>
-          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
             <SalaryTable jobs={JOBS} />
           </div>
           <p className="mt-3 text-sm text-gray-500">
-            * Salaires bruts annuels indicatifs pour la France métropolitaine (2025).
-            Les rémunérations varient selon la localisation, la taille de l&apos;entreprise et le secteur.
+            Brut annuel indicatif, France métropolitaine (2025).
+            Les montants varient selon la localisation, l&apos;entreprise et le secteur.
           </p>
         </section>
 
@@ -121,12 +121,12 @@ export default function SalairesPage() {
         {/* Analysis */}
         <section className="mt-12 mb-12" aria-labelledby="analysis">
           <h2 id="analysis" className="text-2xl font-bold text-primary mb-6">
-            Analyse des salaires IA en France
+            Analyse
           </h2>
-          <div className="prose prose-gray max-w-none space-y-4 text-gray-700 leading-relaxed">
+          <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Le secteur de l&apos;intelligence artificielle offre des rémunérations parmi les plus
-              attractives du marché tech français. Les métiers techniques comme le{" "}
+              L&apos;IA offre des rémunérations parmi les plus élevées du secteur tech en France.
+              Les métiers techniques comme le{" "}
               <Link href="/metiers/machine-learning-engineer" className="text-accent hover:underline">
                 Machine Learning Engineer
               </Link>{" "}
@@ -134,34 +134,19 @@ export default function SalairesPage() {
               <Link href="/metiers/architecte-cloud-ia" className="text-accent hover:underline">
                 Architecte Cloud IA
               </Link>{" "}
-              affichent les salaires les plus élevés, reflétant la rareté de ces compétences
-              sur le marché.
+              affichent les salaires les plus hauts, en raison de la rareté de ces profils.
             </p>
             <p>
-              Les profils en début de carrière peuvent espérer une rémunération comprise
-              entre 32 000 et 52 000 € bruts annuels selon le métier. La progression
-              salariale est rapide : après 3 à 5 ans d&apos;expérience, les salaires augmentent
-              en moyenne de 40 à 60 %.
+              En début de carrière, les salaires vont de 32 000 à 52 000 € bruts annuels
+              selon le métier. Après 3 à 5 ans, les rémunérations augmentent de 40 à 60 %.
             </p>
             <p>
               Le{" "}
               <Link href="/metiers/prompt-engineer" className="text-accent hover:underline">
                 Prompt Engineer
-              </Link>
-              , métier émergent, connaît une croissance salariale particulièrement forte
-              (+35 % en un an) en raison de la demande explosive liée aux modèles de langage
-              comme ChatGPT et Claude.
-            </p>
-            <p>
-              Pour maximiser votre rémunération, consultez notre{" "}
-              <Link href="/formations" className="text-accent hover:underline">
-                guide des formations
               </Link>{" "}
-              et notre{" "}
-              <Link href="/guide" className="text-accent hover:underline">
-                guide complet des métiers IA
-              </Link>
-              .
+              connaît une progression salariale rapide (+35 % en un an) liée
+              à la demande en modèles de langage.
             </p>
           </div>
         </section>

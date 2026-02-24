@@ -14,26 +14,25 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-white/10">
       <nav
         className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"
         aria-label="Navigation principale"
       >
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-xl font-bold text-primary"
+            className="text-sm font-semibold text-white tracking-wide"
           >
-            <span className="text-2xl" aria-hidden="true">🧠</span>
-            <span>Métiers<span className="text-accent">IA</span></span>
+            metiers-ia.fr
           </Link>
 
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-6">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-gray-600 hover:text-accent transition-colors"
+                  className="text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -43,13 +42,13 @@ export default function Header() {
 
           <button
             type="button"
-            className="md:hidden p-2 text-gray-600 hover:text-accent"
+            className="md:hidden p-2 text-gray-300 hover:text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label="Menu de navigation"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
@@ -74,12 +73,12 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <ul className="md:hidden pb-4 space-y-2">
+          <ul className="md:hidden pb-3 space-y-1">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

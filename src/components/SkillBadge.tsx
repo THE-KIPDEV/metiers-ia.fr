@@ -3,16 +3,9 @@ interface SkillBadgeProps {
   variant?: "technical" | "soft";
 }
 
-export default function SkillBadge({ skill, variant = "technical" }: SkillBadgeProps) {
-  const styles =
-    variant === "technical"
-      ? "bg-accent/10 text-accent border-accent/20"
-      : "bg-accent-blue/10 text-accent-blue border-accent-blue/20";
-
+export default function SkillBadge({ skill }: SkillBadgeProps) {
   return (
-    <span
-      className={`inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full border ${styles}`}
-    >
+    <span className="inline-flex items-center text-xs bg-gray-100 text-gray-700 px-2.5 py-1 rounded">
       {skill}
     </span>
   );

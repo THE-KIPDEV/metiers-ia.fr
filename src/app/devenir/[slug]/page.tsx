@@ -32,7 +32,7 @@ const TOC_ITEMS = [
   { id: "parcours", label: "Parcours étape par étape" },
   { id: "formations", label: "Formations recommandées" },
   { id: "competences", label: "Compétences à acquérir" },
-  { id: "conseils", label: "Conseils d'experts" },
+  { id: "conseils", label: "Conseils" },
   { id: "faq", label: "Questions fréquentes" },
 ];
 
@@ -56,14 +56,6 @@ export default async function DevenirPage({ params }: PageProps) {
     })),
   };
 
-  const formationTypeLabels: Record<string, string> = {
-    "Université": "🏛️",
-    "École d'ingénieur": "🎓",
-    "Bootcamp": "🚀",
-    "En ligne": "💻",
-    "Certification": "📜",
-  };
-
   return (
     <>
       <script
@@ -75,16 +67,13 @@ export default async function DevenirPage({ params }: PageProps) {
         <Breadcrumb
           items={[
             { label: "Accueil", href: "/" },
-            { label: "Devenir...", href: "/metiers" },
+            { label: "Métiers", href: "/metiers" },
             { label: `Devenir ${job.shortTitle}` },
           ]}
         />
 
         {/* Hero */}
         <header className="mb-10">
-          <span className="inline-block text-xs font-medium bg-accent/10 text-accent px-2.5 py-1 rounded-full mb-3">
-            Guide carrière
-          </span>
           <h1 className="text-3xl sm:text-4xl font-bold text-primary">
             Comment devenir {job.shortTitle}
           </h1>
@@ -96,23 +85,18 @@ export default async function DevenirPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8">
           {/* Main content */}
           <article>
-            {/* Parcours étape par étape */}
+            {/* Parcours */}
             <section id="parcours" className="mb-10" aria-labelledby="parcours-heading">
               <h2 id="parcours-heading" className="text-2xl font-bold text-primary mb-6">
                 Parcours étape par étape
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {job.devenirSteps.map((step, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-white text-sm font-bold shrink-0">
-                        {i + 1}
-                      </span>
-                      {i < job.devenirSteps.length - 1 && (
-                        <div className="w-0.5 flex-1 bg-accent/20 mt-2" aria-hidden="true" />
-                      )}
-                    </div>
-                    <div className="pb-6">
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-gray-200 text-gray-700 text-sm font-medium shrink-0 mt-0.5">
+                      {i + 1}
+                    </span>
+                    <div>
                       <h3 className="font-semibold text-gray-900">{step.title}</h3>
                       <p className="mt-1 text-gray-600 leading-relaxed">{step.description}</p>
                     </div>
@@ -126,7 +110,7 @@ export default async function DevenirPage({ params }: PageProps) {
               <AdBanner ad={ADS[1]} />
             </div>
 
-            {/* Formations recommandées */}
+            {/* Formations */}
             <section id="formations" className="mb-10" aria-labelledby="formations-heading">
               <h2 id="formations-heading" className="text-2xl font-bold text-primary mb-6">
                 Formations recommandées
@@ -135,31 +119,26 @@ export default async function DevenirPage({ params }: PageProps) {
                 {job.devenirFormations.map((formation, i) => (
                   <article
                     key={i}
-                    className="border border-gray-200 rounded-xl p-5 hover:border-accent/30 transition-colors"
+                    className="border border-gray-200 rounded-lg p-4"
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-2">
-                        <span aria-hidden="true">
-                          {formationTypeLabels[formation.type] || "📚"}
-                        </span>
-                        <h3 className="font-semibold text-gray-900">{formation.name}</h3>
-                      </div>
+                      <h3 className="font-medium text-gray-900">{formation.name}</h3>
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-xs font-medium bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+                        <span className="text-xs text-gray-500">
                           {formation.duration}
                         </span>
-                        <span className="text-xs font-medium bg-accent/10 text-accent px-2.5 py-1 rounded-full">
+                        <span className="text-xs text-gray-500">
                           {formation.type}
                         </span>
                       </div>
                     </div>
-                    <p className="mt-2 text-sm text-gray-600">{formation.description}</p>
+                    <p className="mt-1 text-sm text-gray-600">{formation.description}</p>
                   </article>
                 ))}
               </div>
               <p className="mt-4 text-sm text-gray-500">
                 <Link href="/formations" className="text-accent hover:underline">
-                  Voir toutes les formations IA en France
+                  Toutes les formations IA
                 </Link>
               </p>
             </section>
@@ -193,17 +172,17 @@ export default async function DevenirPage({ params }: PageProps) {
               </div>
               <p className="mt-4 text-sm text-gray-500">
                 <Link href={`/metiers/${job.slug}`} className="text-accent hover:underline">
-                  Voir la fiche métier complète du {job.shortTitle}
+                  Fiche métier {job.shortTitle}
                 </Link>
               </p>
             </section>
 
-            {/* Conseils d'experts */}
+            {/* Conseils */}
             <section id="conseils" className="mb-10" aria-labelledby="advice-heading">
               <h2 id="advice-heading" className="text-2xl font-bold text-primary mb-4">
-                Conseils d&apos;experts
+                Conseils
               </h2>
-              <blockquote className="bg-accent/5 border-l-4 border-accent rounded-r-xl p-5">
+              <blockquote className="border-l-2 border-gray-300 pl-4">
                 <p className="text-gray-700 leading-relaxed italic">
                   {job.devenirAdvice}
                 </p>
@@ -221,40 +200,36 @@ export default async function DevenirPage({ params }: PageProps) {
             </section>
 
             {/* CTA fiche métier */}
-            <section className="mb-10 bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
-              <h2 className="text-xl font-bold text-primary mb-2">
-                Découvrir la fiche métier complète
+            <section className="mb-10 bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h2 className="font-bold text-primary mb-1">
+                Fiche métier {job.shortTitle}
               </h2>
-              <p className="text-gray-600 mb-4">
-                Missions, salaire, outils, environnement de travail et évolution de carrière.
+              <p className="text-sm text-gray-600 mb-3">
+                Missions, salaire, outils et évolution de carrière.
               </p>
               <Link
                 href={`/metiers/${job.slug}`}
-                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-light transition-colors"
+                className="text-sm text-accent hover:underline"
               >
-                Fiche métier {job.shortTitle}
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
+                Voir la fiche complète
               </Link>
             </section>
 
-            {/* Related devenir pages */}
+            {/* Related */}
             {related.length > 0 && (
               <section aria-labelledby="related-devenir">
                 <h2 id="related-devenir" className="text-2xl font-bold text-primary mb-5">
-                  Autres guides carrière
+                  Autres guides
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {related.map((rJob) => (
                     <Link
                       key={rJob.slug}
                       href={`/devenir/${rJob.slug}`}
-                      className="group border border-gray-200 rounded-xl p-4 hover:border-accent/30 hover:shadow-md transition-all"
+                      className="group border border-gray-200 rounded-lg p-4 hover:border-gray-300 transition-colors"
                     >
-                      <span className="text-2xl" aria-hidden="true">{rJob.icon}</span>
-                      <p className="mt-2 font-medium text-gray-900 group-hover:text-accent transition-colors">
-                        Comment devenir {rJob.shortTitle}
+                      <p className="font-medium text-gray-900 group-hover:text-accent transition-colors">
+                        Devenir {rJob.shortTitle}
                       </p>
                     </Link>
                   ))}
@@ -267,24 +242,24 @@ export default async function DevenirPage({ params }: PageProps) {
           <aside className="hidden lg:block space-y-6">
             <TableOfContents items={TOC_ITEMS} />
 
-            <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">En résumé</h3>
+            <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3">En bref</h3>
               <dl className="space-y-3 text-sm">
                 <div>
-                  <dt className="text-gray-500">Niveau requis</dt>
+                  <dt className="text-gray-500">Niveau</dt>
                   <dd className="font-medium text-gray-900">{job.formation.level}</dd>
                 </div>
                 <div>
                   <dt className="text-gray-500">Salaire médian</dt>
-                  <dd className="font-medium text-accent">{job.salary.median.toLocaleString("fr-FR")} €/an</dd>
+                  <dd className="font-medium text-gray-900">{job.salary.median.toLocaleString("fr-FR")} €/an</dd>
                 </div>
                 <div>
                   <dt className="text-gray-500">Étapes</dt>
-                  <dd className="font-medium text-gray-900">{job.devenirSteps.length} étapes</dd>
+                  <dd className="font-medium text-gray-900">{job.devenirSteps.length}</dd>
                 </div>
                 <div>
                   <dt className="text-gray-500">Formations</dt>
-                  <dd className="font-medium text-gray-900">{job.devenirFormations.length} recommandées</dd>
+                  <dd className="font-medium text-gray-900">{job.devenirFormations.length}</dd>
                 </div>
               </dl>
             </div>

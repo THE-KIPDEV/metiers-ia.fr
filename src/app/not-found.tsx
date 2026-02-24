@@ -2,11 +2,8 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 text-center">
-      <p className="text-6xl mb-4" aria-hidden="true">🔍</p>
-      <h1 className="text-3xl font-bold text-primary mb-4">
-        Page introuvable
-      </h1>
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <h1 className="text-3xl font-bold text-gray-900 mb-4">Page introuvable</h1>
       <p className="text-gray-600 mb-8 max-w-md mx-auto">
         La page que vous recherchez n&apos;existe pas ou a été déplacée.
       </p>

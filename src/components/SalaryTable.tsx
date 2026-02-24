@@ -22,27 +22,16 @@ export default function SalaryTable({ jobs }: SalaryTableProps) {
         </thead>
         <tbody>
           {sorted.map((job, index) => (
-            <tr
-              key={job.slug}
-              className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${
-                index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
-              }`}
-            >
+            <tr key={job.slug} className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${index % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
               <td className="py-3 px-4">
-                <Link
-                  href={`/metiers/${job.slug}`}
-                  className="flex items-center gap-2 font-medium text-gray-900 hover:text-accent transition-colors"
-                >
-                  <span aria-hidden="true">{job.icon}</span>
+                <Link href={`/metiers/${job.slug}`} className="font-medium text-gray-900 hover:text-accent transition-colors">
                   {job.shortTitle}
                 </Link>
               </td>
               <td className="py-3 px-4 text-gray-600">{job.salary.junior}</td>
               <td className="py-3 px-4 text-gray-600">{job.salary.confirmed}</td>
               <td className="py-3 px-4 text-gray-600">{job.salary.senior}</td>
-              <td className="py-3 px-4 font-semibold text-accent">
-                {job.salary.median.toLocaleString("fr-FR")} €
-              </td>
+              <td className="py-3 px-4 font-semibold text-gray-900">{job.salary.median.toLocaleString("fr-FR")} €</td>
             </tr>
           ))}
         </tbody>

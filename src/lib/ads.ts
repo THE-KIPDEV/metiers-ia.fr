@@ -4,9 +4,9 @@ export const ADS: Ad[] = [
   {
     partner: "Smart-Bot",
     url: "https://smart-bot.io",
-    title: "Créez votre chatbot IA en quelques minutes",
+    title: "Discutez avec plusieurs IA en même temps",
     description:
-      "La plateforme française pour déployer des chatbots intelligents sans coder. Intégrez un assistant IA sur votre site web facilement.",
+      "Smart-Bot réunit les meilleures IA (ChatGPT, Claude, Gemini…) dans une seule interface. Comparez les réponses et trouvez la meilleure IA pour chaque question.",
     cta: "Essayer Smart-Bot gratuitement",
     variant: "blue",
   },
@@ -22,9 +22,9 @@ export const ADS: Ad[] = [
   {
     partner: "KipAgent",
     url: "https://kipagent.com",
-    title: "Déployez des agents IA sur mesure",
+    title: "Créez votre chatbot IA sur mesure",
     description:
-      "Concevez et déployez des agents IA personnalisés pour automatiser vos processus métier. Solution française et sécurisée.",
+      "Concevez et déployez un chatbot IA personnalisé pour votre site web. Solution française, sans code et sécurisée.",
     cta: "Découvrir KipAgent",
     variant: "green",
   },

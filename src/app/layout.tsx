@@ -71,13 +71,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={inter.className}>
-      <head>
-        <Script defer src="https://kipstats.com/tracker.js" data-site="kp_f061c949" />
-      </head>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Script defer src="https://kipstats.com/tracker.js" data-site="kp_f061c949" />
       </body>
     </html>
   );

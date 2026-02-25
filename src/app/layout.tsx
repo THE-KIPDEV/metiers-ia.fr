@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -70,6 +71,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={inter.className}>
+      <head>
+        <Script defer src="https://kipstats.com/tracker.js" data-site="kp_f061c949" />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>

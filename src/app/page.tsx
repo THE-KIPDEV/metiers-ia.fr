@@ -5,6 +5,7 @@ import JobCard from "@/components/JobCard";
 import AdBanner from "@/components/AdBanner";
 import FAQ from "@/components/FAQ";
 import InternalLinkCard from "@/components/InternalLinkCard";
+import TrackedCta from "@/components/TrackedCta";
 
 const HOMEPAGE_FAQ = [
   {
@@ -69,18 +70,20 @@ export default function HomePage() {
             concrets pour travailler dans l&apos;IA.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
+            <TrackedCta
               href="/metiers"
+              cta="hero_voir_metiers"
               className="bg-white text-primary px-5 py-2.5 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
             >
               Voir les métiers
-            </Link>
-            <Link
+            </TrackedCta>
+            <TrackedCta
               href="/guide"
+              cta="hero_lire_guide"
               className="text-gray-300 border border-white/20 px-5 py-2.5 rounded text-sm font-medium hover:bg-white/10 transition-colors"
             >
               Lire le guide
-            </Link>
+            </TrackedCta>
           </div>
         </div>
       </section>
@@ -97,9 +100,9 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-6 text-sm">
-            <Link href="/metiers" className="text-accent hover:underline">
+            <TrackedCta href="/metiers" cta="voir_toutes_fiches" className="text-accent hover:underline">
               Voir les {JOBS.length} fiches métiers
-            </Link>
+            </TrackedCta>
           </p>
         </div>
       </section>
